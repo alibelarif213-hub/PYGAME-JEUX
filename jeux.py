@@ -24,28 +24,36 @@ YELLOW = (255, 255, 0)
 GOLD = (255, 215, 0)
 
 # Ressources
-background = pygame.image.load("assets/imgs/backgrounds/main_menu_bg.png")
+background = pygame.image.load("assets/Bg1.png")
 background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 
-cinématique = cv2.VideoCapture("assets/cutscenes/starting_cutscene.mp4")
+cinématique = cv2.VideoCapture("assets/cinématique.mp4")
 
-pygame.mixer.music.load("assets/sounds/musics/music.mp3")
-pygame.mixer.music.set_volume(0.1)
-pygame.mixer.music.play(-1)
+try:
+    import os
+    if os.path.exists("assets/music.mp3"):
+        pygame.mixer.music.load("assets/music.mp3")
+        pygame.mixer.music.set_volume(0.1)
+        pygame.mixer.music.play(-1)
+        print("Musique chargée avec succès")
+    else:
+        print("Fichier assets/music.mp3 non trouvé")
+except pygame.error as e:
+    print(f"Impossible de charger la musique: {e}")
 
 
 # Image d'Elon
 
-elon_img = pygame.image.load("assets/imgs/backgrounds/elon_crying.png")
+elon_img = pygame.image.load("assets/elon_crying.png")
 elon_img = pygame.transform.scale(elon_img, (WIDTH, HEIGHT))
 
-Scène_de_N = pygame.image.load("assets/imgs/other/Bg2.png")
+Scène_de_N = pygame.image.load("assets/Bg2.png")
 Scène_de_N = pygame.transform.scale(Scène_de_N, (WIDTH, HEIGHT))
 
 # Polices
 
-FONT_TITLE = pygame.font.Font("assets/fonts/Minecraft.ttf", 72)
-FONT_BUTTON = pygame.font.Font("assets/fonts/Minecraft.ttf", 36)
+FONT_TITLE = pygame.font.Font("assets/Minecraft.ttf", 72)
+FONT_BUTTON = pygame.font.Font("assets/Minecraft.ttf", 36)
 
 class Button:
     def __init__(self, text, center_y, action):
@@ -120,7 +128,7 @@ while running:
                     print("Charger Partie")
                 elif btn.action == "options":
                     current_scene = "image_elon"
-                    pygame.mixer.music.load("assets/sounds/musics/caca.mp3")
+                    pygame.mixer.music.load("assets/caca.mp3")
                     pygame.mixer.music.set_volume(0.1)
                     pygame.mixer.music.play(-1)
                 elif btn.action == "quit":
@@ -146,7 +154,7 @@ while running:
         if mouse_pressed[0]: 
             pygame.time.delay(200) 
             current_scene = "menu"
-            pygame.mixer.music.load("assets/sounds/musics/music.mp3")
+            pygame.mixer.music.load("assets/music.mp3")
             pygame.mixer.music.set_volume(0.1)
             pygame.mixer.music.play(-1)
     
