@@ -1,0 +1,5 @@
+pygame>=2.5.0
+chess>=1.9.0
+pytmx>=3.32
+pyscroll>=2.29
+requests>=2.31.0

@@ -1,0 +1,41 @@
+﻿# Environnement virtuel Python
+venv/
+.venv/
+env/
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Sauvegarde de partie (donnees personnelles)
+savegame.json
+
+# Fichiers systeme
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Stockfish (binaire lourd, a installer separement - voir README)
+game/chess/stockfish/stockfish.exe
+game/chess/stockfish/stockfish
+
+# Fichiers temporaires
+*.tmp
+*.bak
